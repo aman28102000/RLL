@@ -17,9 +17,9 @@ loginRef:FormGroup;
 
   ngOnInit(): void {
     this.loginRef = new FormGroup({
-      emailid:new FormControl(null,[Validators.required, Validators.email]),
+      email:new FormControl(null,[Validators.required, Validators.email]),
       password:new FormControl(null,Validators.required),
-      typeOfUser:new FormControl(null,Validators.required)
+      typeOfUser:new FormControl("user",Validators.required)
     });
   }
 

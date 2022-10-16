@@ -1,31 +1,69 @@
 <div>
   <h2>Login Page</h2>
   <form [formGroup]="loginRef" (ngSubmit)="signIn()">
-    <label>EmailId</label>
-    <input type="email" formControlName="emailid" />
-    <!-- <span
-      class="small"
-      *ngIf="!loginRef.get('emailid').valid && loginRef.get('emailid').touched"
-      >Please enter a valid username</span
-    > -->
-    <br />
-    <label>Password</label>
-    <input type="password" formControlName="password" /><br />
-    <label>TypeOfUser</label>
-    <input
-      type="radio"
-      name="typeOfUser"
-      value="admin"
-      formControlName="typeOfUser"
-    />admin
-    <input
-      type="radio"
-      name="typeOfUser"
-      value="user"
-      formControlName="typeOfUser"
-    />user<br />
-    <input type="submit" value="signIn" />
-    <input type="reset" value="reset" />
+
+    <div class="row">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          id="email"
+          class="form-control"
+          formControlName="email"
+        />
+        <span
+          class="small"
+          *ngIf="
+            !loginRef.get('email')?.valid && loginRef.get('email')?.touched
+          "
+          >Please enter a valid email</span>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          formControlName="password"
+        />
+        <span
+          class="small"
+          *ngIf="
+            !loginRef.get('password')?.valid && loginRef.get('password')?.touched
+          "
+          >Please enter a strong password</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <label for="usertype">TypeOfUser</label>
+        <input
+          type="radio"
+          id="usertype"
+          class="form-control"
+          formControlName="typeOfUser"
+          value="admin"
+        />admin
+        <input
+          type="radio"
+          id="usertype"
+          class="form-control"
+          formControlName="typeOfUser"
+          value="user"
+        />user
+      </div>
+    </div>
+
+    <div class="row">
+      <input type="submit" value="signIn" />
+      <input type="reset" value="reset" />
+    </div>
+    
   </form>
   <br />
   <span style="color: red">{{ msg }}</span
